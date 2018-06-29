@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Currency Converter</title>
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  <script>
+ /* function convertCurency() {
+    // body...
+    var from = document.getElementByid('From').value;
+    var to = document.getElementByid('To').value;
+
+      var xmlhttp = new XMLTHttpRequest();
+      var url ="http://api.fixer.io/latest?symbols=" + from + "," + To;
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+      xmlhttp.onreadystatechange() = function(){
+        if (xmlhttp.readySate==4 && xmlhttp.status == 200) {
+          var result =xmlhttp.responseText;
+          alert("H");
+          var jsResult = JSON.parse(result);
+        }
+      }
+*/
+      /* before it was working 
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                 // Typical action to be performed when the document is ready:
+                 //document.getElementById("demo").innerHTML = xhttp.responseText;
+                 
+                 var  response = JSON.parse(xhttp.responseText);
+                 var people = response.people;
+                // var  response = xhttp.responseText;
+                // console.log(xhttp.responseText);
+                // console.log(response.results.ALL.currencyName);
+                 
+                var  outputs = '';
+                 for (var i = 0; i < results.length; i++){
+                  outputs += '<p>' + people[i].name + '</p>';
+                 }
+                 document.getElementByid('people').innerHTML = outputs;
+              }
+          };
+          xhttp.open("GET", "peoples.json", true);
+          xhttp.send();
+
+      */
+
+//onload="convertCurency();"  onchange="convertCurency();"  onkeyup="convertCurency();"
+
+
+
+/*
+            const USD_PHP = {
+              phdVal:53.45,
+              usdVal:0.019,
+            };
+
+           let message = student.name + ' please see ' + teacher.name + ' in ' + teacher.room + ' to pick up your report card.';
+        */
+
+
+let convertCurrency = () => {
+  let fromCurrency = document.getElementByid("from").value;
+  let toCurrency = document.getElementByid("to").value;
+  let amount document.getElementByid("amount").value;
+  let result = document.getElementByid("result-desplay").value;
+
+  let query = fromCurrency + '_' + toCurrency;
+  let url = 'https://currencyconverterapi.com/api/v5/convert?q=' + query + '&compact=y';
+  fetch(url).then((response)=>{
+    response,json()
+  }).then((data)=>{
+    console.log(data)
+    let val = data[fromCurrency];
+
+    if (val != undefined){
+      let total = parseFloat(val) * parseFloat(amount);
+      result.innerHTML= total;
+      console.log(result);
+    }
+  })
+}
+
+</script>
+</head>
+
+<body onload="convertCurency();">
+
+
+<p id="abc"></p>
+
+
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="display-4 text-center mb-3">Currency Convertert</h1>
+      <form>
+        <div class="form-group">
+           <table class="table" style="background: #333;">
+                <tr>
+                  <td><input id="amount" type="number" class="form-control form-control-lg" placeholder="Enter Currency..." value="1">
+                </td>
+                  <td><select class="form-control form-control-lg" id="from" >
+                    <option value="PHP">Philippine Piso</option>
+                    <option value="USD">AMERICAN SAMOA USD</option>
+                    <option value="AUD" selected="">AUSTRALIA AUD</option>
+                    <option value="AZN">AZERBAIJAN AZN</option>
+                    <option value="BHD"> BAHRAIN BHD</option>
+                  </select></td>
+                </tr>
+
+                <tr>
+                  <td><input id="result-desplay" type="number" class="form-control form-control-lg" placeholder="Result..." disabled="">
+                </td>
+                  <td><select class="form-control form-control-lg" id="To">
+                    <option value="PHP">Philippine Piso</option>
+                    <option value="USD">AMERICAN SAMOA USD</option>
+                    <option value="AUD">AUSTRALIA AUD</option>
+                    <option value="AZN">AZERBAIJAN AZN</option>
+                    <option value="BHD" selected=""> BAHRAIN BHD</option>
+                  </select></td>
+                </tr>
+            </table>
+        </div>
+      </form>
+
+  <!--
+      <div id="output">
+        <div class="card card-primary mb-2">
+          <div class="card-block">
+            <h4>Grams:</h4>
+            <div id="gramsOutput"></div>
+          </div>
+        </div>
+
+        <div class="card card-success mb-2">
+          <div class="card-block">
+            <h4>Kilograms:</h4>
+            <div id="kgOutput"></div>
+          </div>
+        </div>
+
+        <div class="card card-danger mb-2">
+          <div class="card-block">
+            <h4>Ounces:</h4>
+            <div id="ozOutput"></div>
+          </div>
+        </div>
+      </div>
+    --> 
+    </div>
+  </div>
+</div>
+ 
+ 
+<!--
+    <script  src="js/index.js"></script>
+-->
+
+
+
+</body>
+
+</html>
