@@ -1,0 +1,14 @@
+{
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
+  "query":{
+    "from": "USD",
+    "to": "GBP",
+    "amount": 10
+  },
+  "info":{
+    "timestamp": 1433345648,
+    "quote": 0.651897
+  },
+  "result": 6.51897
+}
